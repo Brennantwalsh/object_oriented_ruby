@@ -17,7 +17,7 @@ class Employee
   end
 end
 100.times do
-  employee = Employee.new({first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, salary: 8000, status: true})
+  employee = Employee.new({first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, salary: Faker::Number.number(8), status: ["True", "False"].sample})
   p employee
  
 end
