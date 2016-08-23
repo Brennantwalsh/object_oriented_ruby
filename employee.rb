@@ -18,7 +18,7 @@ class Employee
 end
 100.times do
   employee = Employee.new({first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, salary: Faker::Number.number(8), status: ["True", "False"].sample})
-  puts employee.first_name + " " + employee.last_name + " making $" + employee.salary + ". Currently employed: " + employee.status
+  puts employee.first_name + " " + employee.last_name + " salary $" + employee.salary + ". Currently employed: " + employee.status
  
 end
 
