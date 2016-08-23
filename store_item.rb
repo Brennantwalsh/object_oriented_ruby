@@ -22,7 +22,7 @@ class Item
   end
 
   def info 
-    "#{@name} costs #{@price} and is #{@color}"
+    "The #{@name} costs $#{@price} and is #{@color}."
   end
 end
 
