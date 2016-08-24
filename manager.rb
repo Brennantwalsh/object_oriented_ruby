@@ -20,8 +20,19 @@ class Employee
     @salary *= 1.05
   end
 end
-100.times do
+
+class Manager < Employee
+  def send_report
+    puts "Sending Email..."
+
+    puts "Email Sent"
+  end
+end
+
+20.times do
   employee = Employee.new({first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, salary: Faker::Number.number(8), status: ["True", "False"].sample})
   puts employee.print_info
 end
 
+manager = Manager.new({first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, salary: Faker::Number.number(8), status: ["True", "False"].sample})
+manager.print_info
