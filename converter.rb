@@ -1,15 +1,23 @@
 input = File.open('weather.dat', File::RDONLY){|f| f.read }
 array = input.lines.map(&:split)
-var1 = array[0]
-var2 = array[2]
 
+x = 3
+temp_difference_day = 0
+min_temp_difference = 10000
+10.times do
+var1 = array[0]
+var2 = array[x]
 
 hash = Hash[var1.zip var2]
-p hash
 
-32.times do 
-  x = 3
-  varx = array[x]
-  x = x +1
-  hash << varx
+if hash["MxT"].to_i - hash["MnT"].to_i < min_temp_difference
+  temp_difference_day = hash["Dy"]
+  min_temp_difference = hash["MxT"].to_i - hash["MnT"].to_i
 end
+x = x + 1
+end
+puts min_temp_difference
+puts temp_difference_day
+
+
+
