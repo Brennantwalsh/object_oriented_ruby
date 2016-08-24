@@ -4,7 +4,7 @@ array = input.lines.map(&:split)
 x = 3
 temp_difference_day = 0
 min_temp_difference = 10000
-10.times do
+30.times do
 var1 = array[0]
 var2 = array[x]
 

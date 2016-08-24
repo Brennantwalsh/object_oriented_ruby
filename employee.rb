@@ -1,27 +1,29 @@
-require 'faker'
-
-  
 class Employee
-  
-  attr_accessor :first_name, :last_name, :salary, :status
+  attr_reader :first_name, :last_name
+  attr_writer :active 
+  @@id = 0
 
-  def initialize(hash)
-    @first_name = hash[:first_name]
-    @last_name = hash[:last_name]
-    @salary = hash[:salary]
-    @status = hash[:status]
+  def initialize(input_options)
+    @@id += 1
+    @id = @@id
+    @first_name = input_options[:first_name]
+    @last_name = input_options[:last_name]
+    @salary = input_options[:salary]
+    @active = input_options[:active]
   end
 
   def print_info
-    puts "#{first_name} #{last_name} makes $#{salary} and is employed #{status}"
+    puts "#{@first_name} #{@last_name} makes #{@amount_per_year} a year."
   end
 
-  def annual_raise
-    @salary *= 1.05
+  def give_annual_raise
+    @salary = 1.05 * @salary
   end
-end
-100.times do
-  employee = Employee.new({first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, salary: Faker::Number.number(8), status: ["True", "False"].sample})
-  puts employee.print_info
+
+  private
+
+  def amount_per_year
+    "#{salary} a year"
+  end
 end
 
