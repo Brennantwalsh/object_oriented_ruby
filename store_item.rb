@@ -29,3 +29,13 @@ end
 item_1 = Item.new({name: "pen", price: 5, color: "black"})
 puts item_1.info
 
+class Food < Item
+  def initalize(hash)
+    super
+    @shelf_life = hash[:shelf_life]
+  end
+end
+
+food_1 = Food.new({name: "banana", price: 5, color: "black", shelf_life: "10_days"})
+p food_1
+
