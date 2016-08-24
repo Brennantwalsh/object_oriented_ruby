@@ -22,6 +22,11 @@ class Employee
 end
 
 class Manager < Employee
+  def initialize(hash)
+    super(hash)
+    @employees = hash[:employees]
+  end
+
   def send_report
     puts "Sending Email..."
 
@@ -29,10 +34,9 @@ class Manager < Employee
   end
 end
 
-20.times do
-  employee = Employee.new({first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, salary: Faker::Number.number(8), status: ["True", "False"].sample})
-  puts employee.print_info
-end
+  employee_1 = Employee.new({first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, salary: Faker::Number.number(8), status: ["True", "False"].sample})
+  puts employee_1.print_info
+  employee_2 = Employee.new({first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, salary: Faker::Number.number(8), status: ["True", "False"].sample})
 
-manager = Manager.new({first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, salary: Faker::Number.number(8), status: ["True", "False"].sample})
-manager.print_info
+manager = Manager.new({first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, salary: Faker::Number.number(8), status: ["True", "False"].sample, employees: [employee_1, employee_2]})
+p manager
