@@ -1,3 +1,5 @@
-class Intern < Employee
-  include Emailing
+module Actualize
+  class Intern < Employee
+    include Emailing
+  end
 end
